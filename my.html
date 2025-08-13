@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Apsara GC — QA & Backend Developer</title>
+<meta name="description" content="Portfolio of Apsara GC — QA & Backend Developer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand: #F070BB;
+  --ink: #ffffff;
+  --muted: rgba(255,255,255,.8);
+  --card: rgba(255,255,255,.08);
+  --stroke: rgba(255,255,255,.22);
+  --shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+* { box-sizing: border-box; margin:0; padding:0; }
+html, body { height: 100%;,
+ }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--ink);
+  background: radial-gradient(1200px 800px at 20% -10%, #ffa6d3 0%, transparent 60%),
+              radial-gradient(1000px 600px at 120% 10%, #ff86c8 0%, transparent 60%),
+              linear-gradient(180deg, var(--brand), #e45aa7 60%, #d64f9c 100%);
+  background-attachment: fixed;
+  line-height: 1.6;
+  scroll-behavior: smooth;  overflow-y: auto;     /* keep only one vertical scrollbar */
+
+}
+
+/* Global containers */
+.container { width: min(1100px, 92vw); margin: 0 auto;    overflow-x: hidden;
+
+ }
+section { padding: 80px 0; position: relative; }
+.card { background: var(--card); border: 1px solid var(--stroke); border-radius: 20px; backdrop-filter: blur(6px); box-shadow: var(--shadow); }
+
+/* Header / Nav */
+header { position: sticky; top: 0; z-index: 30; background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,0)); backdrop-filter: blur(6px); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+.brand { font-weight: 800; letter-spacing: 0.5px; }
+.brand a { color: var(--ink); text-decoration: none; }
+.nav a { color: var(--ink); text-decoration: none; opacity: .9; }
+.nav a:hover { opacity: 1; }
+.nav-links { display: flex; gap: 20px; align-items: center; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 16px; border-radius: 999px; font-weight: 600; border: 1px solid var(--ink); background: transparent; color: var(--ink); text-decoration: none; transition: transform .18s ease, background .18s ease, color .18s ease; }
+.btn:hover { transform: translateY(-1px); background: var(--ink); color: #c63e93; }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 36px; padding: 64px 0 24px; position: relative; overflow: hidden; }
+.hero h1 { font-size: clamp(28px, 5vw, 54px); line-height: 1.05; margin: 0 0 12px; }
+.hero p { font-size: clamp(14px, 2.4vw, 18px); color: var(--muted); margin: 8px 0 24px; }
+.role { position: relative; display: inline-block; padding-right: 10px; }
+.role::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 2px; background: currentColor; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Floating blobs */
+.blob { position: absolute; filter: blur(30px); opacity: .35; pointer-events: none; mix-blend-mode: screen; animation: float 14s ease-in-out infinite; }
+.blob.b1 { background: #ffffff; width: 280px; height: 280px; left: -80px; top: 120px; border-radius: 40% 60% 70% 30% / 40% 30% 70% 60%; }
+.blob.b2 { background: #ffd7ee; width: 240px; height: 240px; right: -60px; top: 480px; animation-delay: 2s; border-radius: 70% 30% 40% 60% / 60% 30% 70% 40%; }
+.blob.b3 { background: #fff0f8; width: 320px; height: 320px; left: 50%; top: 980px; transform: translateX(-50%); animation-delay: 5s; border-radius: 60% 40% 50% 50% / 50% 70% 30% 50%; }
+
+@keyframes float { 0%,100%{ transform: translateY(0) scale(1);} 50%{ transform: translateY(-18px) scale(1.03);} }
+
+/* Floating hero image */
+.hero-image { position: absolute; width: 230px; height: 200px; border-radius: 50%; top: 50%; right: 5%; transform: translateY(-50%); animation: floatImg 6s ease-in-out infinite; box-shadow: 0 15px 40px rgba(0,0,0,0.25); }
+@keyframes floatImg { 0%,100% { transform: translateY(-50%) translateX(0); } 50% { transform: translateY(-55%) translateX(10px); } }
+
+/* Grids & lists */
+.grid { display: grid; gap: 18px; }
+.grid.skills { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.tag { display: inline-block; padding: 8px 12px; border: 1px solid var(--stroke); border-radius: 999px; margin: 6px 8px 0 0; background: rgba(255,255,255,.06); }
+
+/* Timelines */
+.timeline { position: relative; margin-left: 14px; }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: var(--ink); opacity: .25; }
+.item { position: relative; padding-left: 28px; margin: 18px 0; }
+.item::before { content: ""; position: absolute; left: 0; top: 8px; width: 12px; height: 12px; background: var(--ink); border-radius: 50%; box-shadow: 0 0 0 3px rgba(255,255,255,.2); }
+
+/* Cards */
+.card h3 { margin: 0 0 6px; }
+.card p { margin: 0; color: var(--muted); }
+.card .meta { opacity: .8; font-size: 14px; margin-bottom: 6px; }
+
+/* Footer */
+footer { padding: 40px 0 60px; text-align: center; color: var(--muted); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+
+<header>
+  <div class="container nav">
+    <div class="brand"><a href="#top">Apsara GC</a></div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="container">
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1 class="reveal">QA <span class="role">& Backend Developer</span></h1>
+      <p class="reveal" style="transition-delay:.08s">I build and test reliable web applications. I focus on backend APIs, database design, and quality assurance to ship features with confidence.</p>
+      <div class="reveal" style="transition-delay:.12s">
+        <a class="btn" href="https://www.linkedin.com/in/apsara-gc-3b6889279/" target="_blank">LinkedIn</a>
+        <a class="btn" href="https://www.youtube.com/@hanagslifestyle" target="_blank">YouTube</a>
+        <a class="btn" href="https://www.instagram.com/hanagslifestyle" target="_blank">Instagram</a>
+        <a class="btn" href="https://www.github.com/hanagslifestyle" target="_blank">Github</a>
+      </div>
+    </div>
+
+    <!-- Floating Hero Image -->
+    <img src="nanu.jpg" class="hero-image" alt="Apsara GC">
+
+    <br>
+    <div class="card reveal" style="padding:24px;">
+      <h3 style="margin-top:0">Quick Profile</h3>
+      <p><strong>Name:</strong> Apsara GC</p>
+      <p><strong>Role:</strong> QA & Backend Developer</p>
+      <p><strong>Location:</strong> Pokhara, Nepal</p>
+      <p class="meta">Interests: traveling & trekking, portrait arts, reading novels</p>
+      <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+        <span class="tag">Open to Internships</span>
+        <span class="tag">Backend APIs</span>
+        <span class="tag">Quality Assurance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / SUMMARY -->
+    <section id="about">
+      <div class="card reveal" style="padding:26px;">
+        <h2 style="margin:0 0 10px;">About</h2>
+        <p>
+          I'm a final-year BSc(Hons) Computing graduate from Informatics College Pokhara, passionate about building clean backend services and ensuring product quality end‑to‑end. I enjoy problem‑solving, collaborating across teams, and learning new technologies.
+        </p>
+        <p style="margin-top:8px" class="meta">Email: <a style="color:#fff;" href="mailto:apsaragc29@gmail.com">apsaragc29@gmail.com</a> · Phone: <a style="color:#fff;" href="tel:+9779803508674">+977 9803508674</a></p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="reveal" style="margin:0 0 14px;">Skills</h2>
+      <div class="grid skills">
+        <div class="card reveal" style="padding:18px;">
+          <h3>Programming</h3>
+          <div>
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">C# / .NET</span>
+            <span class="tag">Laravel (PHP)</span>
+          </div>
+        </div>
+        <div class="card reveal" style="padding:18px;">
+          <h3>Web Development</h3>
+          <div>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="card reveal" style="padding:18px;">
+          <h3>Databases</h3>
+          <div>
+            <span class="tag">MySQL</span>
+            <span class="tag">SQL (General)</span>
+          <span class="tag">PostgreSQL</span>
+                      <span class="tag">MongoDB</span>
+
+
+          </div>
+        </div>
+        <div class="card reveal" style="padding:18px;">
+          <h3>Tools</h3>
+          <div>
+            <span class="tag">Git</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">VS Studio</span>
+            <span class="tag">Jupyter Notebook</span>
+          </div>
+        </div>
+        <div class="card reveal" style="padding:18px;">
+          <h3>QA & Testing</h3>
+          <div>
+            <span class="tag">Cypress</span>
+            <span class="tag">Jira</span>
+            <span class="tag">API Testing</span>
+            <span class="tag">Regression Testing</span>
+            <span class="tag">Manual Testing</span>
+
+          </div>
+        </div>
+        <div class="card reveal" style="padding:18px;">
+          <h3>Soft Skills</h3>
+          <div>
+            <span class="tag">Communication</span>
+            <span class="tag">Time Management</span>
+            <span class="tag">Analytical Thinking</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2 class="reveal" style="margin:0 0 14px;">Experience</h2>
+      <div class="card reveal" style="padding:18px;">
+        <div class="timeline">
+          <div class="item">
+            <h3>Full Stack Developer (Intern) — FireFly IT Solutions</h3>
+            <div class="meta">3‑month Internship</div>
+            <p>Assisted in the development of web applications, participated in coding and debugging, supported project documentation, and collaborated with the team to meet deadlines.</p>
+          </div>
+          <div class="item">
+            <h3>QA & Backend Developer — Projects & Coursework</h3>
+            <div class="meta">Ongoing</div>
+            <p>Designing RESTful APIs, data models, and automated test scenarios to improve reliability and maintainability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="reveal" style="margin:0 0 14px;">Projects</h2>
+      <div class="grid two">
+        <div class="card reveal" style="padding:18px;">
+          <h3>Hanag’s Garment</h3>
+          <div class="meta">Laravel • E‑commerce • Chat • Reviews • User Verification</div>
+          <p>Laravel‑based clothing e‑commerce site featuring chat, review, and user verification. Focused on local promotion and user‑friendly design.</p>
+        </div>
+        <div class="card reveal" style="padding:18px;">
+          <h3>Data Science Salary Analysis</h3>
+          <div class="meta">Python • Pandas • NumPy</div>
+          <p>Individual project exploring salary data, using Pandas/NumPy for cleaning, exploration, and initial analysis.</p>
+        </div>
+        <div class="card reveal" style="padding:18px;">
+          <h3>Electronic E‑commerce (Coursework)</h3>
+          <div class="meta">Java • Team Project • 1 Month</div>
+          <p>Developed dynamic web application modules; collaborated on requirements gathering and implementation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2 class="reveal" style="margin:0 0 14px;">Education</h2>
+      <div class="card reveal" style="padding:18px;">
+        <div class="timeline">
+          <div class="item">
+            <h3>Informatics College Pokhara</h3>
+            <div class="meta">BSc(Hons) Computing — Completed</div>
+          </div>
+          <div class="item">
+            <h3>Novel Academy, Newroad, Pokhara</h3>
+            <div class="meta">A Level Science — 2018–2020</div>
+          </div>
+          <div class="item">
+            <h3>Jana Jagrit Higher Secondary School, Sarangkot, Pokhara</h3>
+            <div class="meta">SEE — 2018 · CGPA 3.75/4.00</div>
+          </div>
+        </div>
+      </div>
+    </section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Apsara GC ♥
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  for (const e of entries) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  }
+}, {threshold: 0.15});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
